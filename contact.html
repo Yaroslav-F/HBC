@@ -127,60 +127,98 @@
         </div>
     </div>
 </header>
-      <!-- main section -->
-<section class="main">
-    <div class="content">
-        <div class="min-center">
-            <h1>Are you ready?</h1>
-            <button class="video-button" data-toggle="modal" data-target="#myModal"><span class="triangle"></span></button>
-        </div>
+      <!-- / header -->
+<!-- section -->
+<section class="contact-content bg-arms">
+    <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+    <div class="map-holder">
+        <div id='gmap_canvas'></div>
+        <style>
+            #gmap_canvas img{
+                max-width:none!important;
+                background:none!important
+            }
+        </style>
     </div>
-</section>
-<!-- / main section -->
-<!-- home-content section -->
-<section class="section home-content bg-arms">
-    <div class="container">
-        <div class="row">
-            <div class="sidebar-left col-md-3">
-                <div class="row">
-                    <article>
-                        <h2 class="text-header">Facilities</h2>
-                        <p>Heathrow Boxing and Mixed Martial Arts Club welcomes everyone to join us. You will find great fighting spirit, unique training techniques and professional coaches.  It is an opportunity to build up your strength and find a comprehensive fitness program tailored to your individual needs to focus on one or more specific skills.</p>
-                        <p class="color-grey">We run various classes through out the week, for full details please download our PDF using the link below.</p>
-                        <a href="#" class="blue-border-btn" download>
-                            <img src="/images/pdf_ico.png" alt="Pdf ico" />
-                            <!--<span>Download PDF</span>-->
-                            Download PDF
-                        </a>
-                    </article>
-                </div>
-            </div>
-            <div class="main-content col-md-9">
-                <div class="row">
-                    <div class="col-md-6">
-                        <article>
-                            <!--  <img src="/images/main_img_1.jpg" class="article-img" alt="" /> -->
-                            <img src="/images/image7.jpeg" class="article-img" alt="" />
-                            <h2 class="text-header">Boxing & MMA</h2>
-                            <p class="color-grey">We offer a full size boxing ring, various types of punch bags and MMA cage training.  We provide high quality, effective equipment.</p>
-                            <p class="color-grey">Our equipment caters to the needs and interests of individuals with a variety of goals, from general fitness, weight loss and toning to sport performance. Changing rooms and locker facilities are also available.</p>
-                        </article>
-                    </div>
-                    <div class="col-md-6">
-                        <article>
-                            <!--  <img src="/images/main_img_2.jpg" class="article-img" alt="" /> -->
-                            <img src="/images/image10.jpeg" class="article-img" alt="" />
-                            <h2 class="text-header">Backyard</h2>
-                            <p class="color-grey">We provide backyard facilities for some of the more authentic boxing training routines including rope and tractor tyres.</p>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- / home-content section -->
+    <script type='text/javascript'>
+        function init_map(){
+            var isDraggable;
+            if($(document).width() > 480){
+                isDraggable = true;
+            }else{
+                isDraggable = false;
+            }
 
+            var myOptions = {draggable: isDraggable,zoom:15,center:new google.maps.LatLng(51.4179426,-0.4437657),mapTypeId: google.maps.MapTypeId.TERRAIN,scrollwheel: false};
+            map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+            marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(51.4179426,-0.4437657)});
+//                    infowindow = new google.maps.InfoWindow({content:'London, United Kingdom<br>'});
+//                    google.maps.event.addListener(marker, 'click', function(){
+//                        infowindow.open(map,marker);
+//                    });
+//                    infowindow.open(map,marker);
+        }
+        google.maps.event.addDomListener(window, 'load', init_map);
+    </script>
+
+    <div class="container">
+        <div class="contact-block">
+
+            <div class="contact-holder col-md-6">
+                <h3>Contact</h3>
+                <div class="address-item">
+                    <h4>Address:</h4>
+                    <address>Enterprise House, Ashford Rd, Ashford, TW15 1XB</address>
+                </div>
+                <div class="address-item">
+                    <h4>email:</h4>
+                    <p>HeathrowBoxingClub@aol.co.uk</p>
+                </div>
+                <div class="address-item">
+                    <h4>phones:</h4>
+                    <p>07979848371</p>
+                </div>
+            </div>
+
+            <div class="contact-form-holder col-md-6">
+                <form>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" required id="inputName">
+                            <label for="inputName">Name *</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <input type="email" class="form-control" required id="inputEmail">
+                            <label for="inputEmail">Email *</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="inputSubject">
+                            <label for="inputSubject">Subject</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <textarea class="form-control" required id="textarea"></textarea>
+                            <label for="textarea">Message *</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button type="submit" class="white-border-btn">Send</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- / section -->
 
       <!-- footer -->
 <footer class="footer">
