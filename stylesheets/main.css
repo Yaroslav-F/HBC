@@ -728,6 +728,8 @@ article p {
   padding: 0; }
   .classes .modal-body img {
     width: 100%; }
+  .classes .modal-body article ul {
+    color: #ffffff; }
 
 .classes .panel-body {
   padding: 10px 30px; }
